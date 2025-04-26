@@ -472,7 +472,7 @@ export default function PersonalWebsite() {
     email: "waynewu1pn2@gmail.com",
     github: "https://github.com/GalaGala1009",
     linkedin: "https://www.linkedin.com/in/wu-wayne-956732234/",
-    bio: "Hi",
+    bio: "Hi test 1 2 3",
     education: [
       {
         degree: "Master's in Computer Science and Engineering",
