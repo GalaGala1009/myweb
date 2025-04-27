@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 
 import selfie from './images/myself2.jpg';
+import hero_background from './images/background.jpg';
 
-// Regular CSS instead of Tailwind
+// Regular CSS 
 const styles = {
   // Layout
   container: {
@@ -39,7 +40,7 @@ const styles = {
     transition: 'all 0.3s ease',
   },
   navbarScrolled: {
-    backgroundColor: 'rgb(0, 0, 128)',
+    backgroundColor: 'rgb(3, 3, 84)',   // navbar background color when scrolled
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     padding: '8px 0',
   },
@@ -93,7 +94,9 @@ const styles = {
   // Hero section
   heroSection: {
     height: '100vh',
-    background: 'linear-gradient(135deg, rgb(0, 0, 128) 0%, rgb(30, 30, 180) 100%)',
+    backgroundSize: '100% 100%',
+    backgroundImage: `url(${hero_background})`,
+    //background: 'linear-gradient(135deg, rgb(0, 0, 128) 0%, rgb(30, 30, 180) 100%)',
     color: 'white',
     display: 'flex',
     alignItems: 'center',
@@ -156,7 +159,7 @@ const styles = {
     fontSize: '2rem',
     fontWeight: 'bold',
     marginBottom: '24px',
-    color: 'rgb(0, 0, 128)',
+    color: 'rgb(0, 0, 128)', // section title color
   },
   divider: {
     width: '80px',
@@ -351,7 +354,7 @@ const styles = {
   
   // Footer
   footer: {
-    backgroundColor: 'rgb(0, 0, 128)',
+    backgroundColor: 'rgb(3, 3, 84)',
     color: 'white',
     padding: '32px 0',
     textAlign: 'center',
@@ -504,7 +507,7 @@ export default function PersonalWebsite() {
         tags: ["React", "CSS", "Framer Motion"]
       }
     ],
-    skills: ["C", "C++", "Python", "JAVA", "JavaScript", "machine learning", "github", "CI/CD"]
+    skills: ["C", "C++", "Python", "JAVA", "JavaScript", "machine learning", "CI/CD"]
   };
 
   return (
