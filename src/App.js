@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import selfie from './images/myself.jpg';
 import hero_background from './images/background.jpg';
 import project1Img from './images/project1.png';
+import project2Img from './images/project2.png';
 
 
 // Regular CSS 
@@ -253,7 +254,7 @@ const styles = {
     height: '100%',
     //objectFit: 'cover',
     objectFit: 'contain',
-    opacity: 0.6,
+    opacity: 1,
   },
   projectContent: {
     padding: '24px',
@@ -485,7 +486,7 @@ export default function PersonalWebsite() {
         degree: "Master's in Computer Science and Engineering",
         institution: "National Chung Hsing University",
         year: "2024-2026",
-        details: " Research Focus: Resource admission control in 6G networks"
+        details: " Research Focus: Dynamic Slice Resource Allocation and Slice Admission Control in 5/6G networks"
       },
       {
         degree: "Bachelor's in Computer Science",
@@ -503,9 +504,11 @@ export default function PersonalWebsite() {
         image : project1Img
       },
       {
-        title: "P2",
-        description: "TBD",
-        tags: ["A", "B", "C"]
+        title: "Leetcode Solutions",
+        description: "This notebook contains my Leetcode solutions.",
+        link : "https://hackmd.io/rl8hCxbkS3eMgNqxDDRg2A?view#202505",
+        tags: ["Leetcode", "Algorithms", "Data Structures"],
+        image : project2Img
       },
       {
         title: "P3",
