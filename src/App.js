@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 
-import selfie from './images/myself2.jpg';
+import selfie from './images/myself.jpg';
 import hero_background from './images/background.jpg';
+import project1Img from './images/project1.png';
+
 
 // Regular CSS 
 const styles = {
@@ -249,7 +251,8 @@ const styles = {
   projectImg: {
     width: '100%',
     height: '100%',
-    objectFit: 'cover',
+    //objectFit: 'cover',
+    objectFit: 'contain',
     opacity: 0.6,
   },
   projectContent: {
@@ -264,6 +267,7 @@ const styles = {
   projectDescription: {
     color: '#555',
     marginBottom: '16px',
+    whiteSpace: 'pre-line',
   },
   projectTags: {
     display: 'flex',
@@ -475,7 +479,7 @@ export default function PersonalWebsite() {
     email: "waynewu1pn2@gmail.com",
     github: "https://github.com/GalaGala1009",
     linkedin: "https://www.linkedin.com/in/wu-wayne-956732234/",
-    bio: "Hi test 1 2 3",
+    bio: "I am currently a CS Master student of NCHU in Taiwan, current focus on dynamic slice resource allocation (DSRA) and slice admission control (SAC) problem in 5G/6G network.",
     education: [
       {
         degree: "Master's in Computer Science and Engineering",
@@ -492,19 +496,21 @@ export default function PersonalWebsite() {
     ],
     projects: [
       {
-        title: "P1",
-        description: "TBD",
-        tags: ["React", "Redux", "Node.js", "MongoDB"]
+        title: "Machine Learning Projects",
+        description: "This repo contains various machine learning project.",
+        link: "https://github.com/GalaGala1009/Machine-Learning-Projects",
+        tags: ["Python", "Machine Learning", "DRL", "Pytorch"],
+        image : project1Img
       },
       {
         title: "P2",
         description: "TBD",
-        tags: ["React", "Chart.js", "Firebase"]
+        tags: ["A", "B", "C"]
       },
       {
         title: "P3",
         description: "TBD",
-        tags: ["React", "CSS", "Framer Motion"]
+        tags: ["A", "B", "C"]
       }
     ],
     skills: ["C", "C++", "Python", "JAVA", "JavaScript", "machine learning", "CI/CD"]
@@ -691,14 +697,25 @@ export default function PersonalWebsite() {
               >
                 <div style={styles.projectImage}>
                   <img 
-                    src={`/api/placeholder/400/${300 + index * 10}`} 
-                    alt={project.title} 
-                    style={styles.projectImg}
+                    //src={`/api/placeholder/400/${300 + index * 10}`} 
+                    src = {project.image}
+                    alt = {project.title} 
+                    style = {styles.projectImg}
                   />
                 </div>
                 <div style={styles.projectContent}>
                   <h3 style={styles.projectTitle}>{project.title}</h3>
                   <p style={styles.projectDescription}>{project.description}</p>
+                  {project.link && (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      style={{...styles.contactLink, color: 'rgb(0, 0, 128)', display: 'block', marginBottom: '16px'}}
+                    >
+                      View Project
+                    </a>
+                  )}
                   <div style={styles.projectTags}>
                     {project.tags.map((tag, tagIndex) => (
                       <span 
@@ -767,36 +784,6 @@ export default function PersonalWebsite() {
                   </div>
                 </div>
 
-                <form style={styles.contactForm}>
-                  <div style={styles.formRow} className="form-row">
-                    <input
-                      type="text"
-                      placeholder="Your Name"
-                      style={styles.input}
-                    />
-                    <input
-                      type="email"
-                      placeholder="Your Email"
-                      style={styles.input}
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Subject"
-                    style={styles.input}
-                  />
-                  <textarea
-                    placeholder="Your Message"
-                    rows="4"
-                    style={styles.textarea}
-                  ></textarea>
-                  <button
-                    type="submit"
-                    style={styles.submitButton}
-                  >
-                    Send Message
-                  </button>
-                </form>
               </div>
             </div>
           </div>
