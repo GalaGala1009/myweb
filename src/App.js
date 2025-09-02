@@ -283,6 +283,40 @@ const styles = {
     color: 'rgb(0, 0, 128)',
   },
   
+  // Certificates
+  certificateCard: {
+    backgroundColor: 'white',
+    padding: '24px',
+    borderRadius: '8px',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  certificateTitle: {
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    color: 'rgb(0, 0, 128)',
+    marginBottom: '8px',
+  },
+  certificateIssuer: {
+    fontSize: '0.9rem',
+    color: '#555',
+    marginBottom: '16px',
+  },
+  certificateDate: {
+    fontSize: '0.8rem',
+    color: '#666',
+    marginTop: '16px',
+  },
+  certificateLink: {
+    color: 'rgb(0, 0, 128)',
+    textDecoration: 'none',
+    fontWeight: '500',
+    marginTop: '16px',
+    display: 'inline-block',
+  },
+
   // Contact
   contactCard: {
     backgroundColor: 'white',
@@ -439,7 +473,7 @@ export default function PersonalWebsite() {
       }
       
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'education', 'projects', 'contact'];
+      const sections = ['home', 'about', 'education', 'certificates', 'projects', 'contact'];
       
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -476,11 +510,11 @@ export default function PersonalWebsite() {
   // Personal data
   const personalData = {
     name: "Wei-Zheng Wu (Wayne)",
-    title: "master's student in Computer Science",
+    title: "A master's student in Computer Science",
     email: "waynewu1pn2@gmail.com",
     github: "https://github.com/GalaGala1009",
     linkedin: "https://www.linkedin.com/in/wu-wayne-956732234/",
-    bio: "I am currently a CS Master student of NCHU in Taiwan, current focus on dynamic slice resource allocation (DSRA) and slice admission control (SAC) problem in 5G/6G network.",
+    bio: "I am currently a CS Master student of NCHU in Taiwan, focusing on dynamic slice resource allocation (DSRA) and slice admission control (SAC) problem in 5G/6G network.",
     education: [
       {
         degree: "Master's in Computer Science and Engineering",
@@ -516,7 +550,25 @@ export default function PersonalWebsite() {
         tags: ["A", "B", "C"]
       }
     ],
-    skills: ["C", "C++", "Python", "JAVA", "JavaScript", "machine learning", "CI/CD"]
+    skills: ["C", "C++", "Python", "JAVA", "JavaScript", "machine learning", "DRL", "RL"],
+    certificates: [
+      {
+        name: "TOEIC 765",
+        issuer: "TOEIC"
+        //date: "Issued Aug 2023",
+        //link: "#" // 請替換成您的證照連結
+      },
+      {
+        name: "JLPT N2",
+        issuer: "JLPT"
+        //date: "Issued Dec 2023",
+        //link: "#" // 請替換成您的證照連結
+      },
+      {
+        name: "CPE 4/7",
+        issuer: "CPE"
+      }
+    ]
   };
 
   return (
@@ -540,7 +592,7 @@ export default function PersonalWebsite() {
           
           {/* Desktop Menu */}
           <div style={styles.navLinks} className="nav-links">
-            {['home', 'about', 'education', 'projects', 'contact'].map((section) => (
+            {['home', 'about', 'education', 'certificates', 'projects', 'contact'].map((section) => (
               <a
                 key={section}
                 href={`#${section}`}
@@ -577,7 +629,7 @@ export default function PersonalWebsite() {
         {isMobileMenuOpen && (
           <div style={styles.mobileMenu}>
             <div style={{...styles.container, ...styles.mobileMenuLinks}}>
-              {['home', 'about', 'education', 'projects', 'contact'].map((section) => (
+              {['home', 'about', 'education', 'certificates', 'projects', 'contact'].map((section) => (
                 <a
                   key={section}
                   href={`#${section}`}
@@ -686,8 +738,39 @@ export default function PersonalWebsite() {
         </div>
       </section>
 
+      {/* Certificates Section */}
+      <section id="certificates" style={styles.section}>
+        <div style={styles.container}>
+          <h2 style={{...styles.sectionTitle, textAlign: 'center'}}>Certificates</h2>
+          <div style={{...styles.divider, margin: '0 auto 48px auto'}}></div>
+          
+          <div style={styles.projectsGrid} className="projects-grid">
+            {personalData.certificates.map((cert, index) => (
+              <div key={index} style={styles.certificateCard}>
+                <div>
+                  <h3 style={styles.certificateTitle}>{cert.name}</h3>
+                  <p style={styles.certificateIssuer}>{cert.issuer}</p>
+                </div>
+                <div>
+                  <p style={styles.certificateDate}>{cert.date}</p>
+                  
+                  {/*<a 
+                    href={cert.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={styles.certificateLink}
+                  >
+                    Show credential
+                  </a>*/}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
-      <section id="projects" style={styles.section}>
+      <section id="projects" style={{...styles.section, ...styles.sectionGray}}>
         <div style={styles.container}>
           <h2 style={{...styles.sectionTitle, textAlign: 'center'}}>My Projects</h2>
           <div style={{...styles.divider, margin: '0 auto 48px auto'}}></div>
