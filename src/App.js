@@ -4,6 +4,7 @@ import selfie from './images/myself.jpg';
 import hero_background from './images/background.jpg';
 import project1Img from './images/project1.png';
 import project2Img from './images/project2.png';
+import project3Img from './images/project3.png';
 
 
 // Regular CSS 
@@ -531,8 +532,8 @@ export default function PersonalWebsite() {
     ],
     projects: [
       {
-        title: "Machine Learning Projects",
-        description: "This repo contains various machine learning project.",
+        title: "Deep Learning Projects",
+        description: "This repo contains various deep learning projects.",
         link: "https://github.com/GalaGala1009/Machine-Learning-Projects",
         tags: ["Python", "Machine Learning", "DRL", "Pytorch"],
         image : project1Img
@@ -545,9 +546,11 @@ export default function PersonalWebsite() {
         image : project2Img
       },
       {
-        title: "P3",
-        description: "TBD",
-        tags: ["A", "B", "C"]
+        title: "Evolution Computing Projects",
+        description: "This repo contains various instersting evolution computing projects.",
+        link : "https://github.com/GalaGala1009/Evolution-Computing-Projects",
+        tags: ["Evolution Computing", "Genetic Algorithm"],
+        image : project3Img
       }
     ],
     skills: ["C", "C++", "Python", "JAVA", "JavaScript", "machine learning", "DRL", "RL"],
